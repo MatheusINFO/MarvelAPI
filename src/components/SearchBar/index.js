@@ -1,12 +1,32 @@
-import React from 'react';
+import React, {useState, useRef} from 'react';
 import {FaSearch} from 'react-icons/fa';
 
 import {Form} from './styles';
 
-const SearchBar = () => {
+const SearchBar = (props) => {
+    const [inputValue, setInputValue] = useState('');
+    const timeOut = useRef(null);
+
+    const handleSearch = (e) => {
+        const {value} = e.target;
+
+        clearTimeout(timeOut.current);
+
+        setInputValue(value);
+
+        timeOut.current = setTimeout(() => {
+            props.callback(value);
+        }, 300);
+    }
+
     return(
-        <Form>
-            <input type="text" placeholder="Digite o nome do héroi"/>
+        <Form onSubmit={handleSearch}>
+            <input 
+                type="text" 
+                placeholder="Digite o nome do héroi"
+                onChange={handleSearch}
+                value={inputValue}
+            />
             
             <button type="submit">
                 <FaSearch size={20} color="#fff"/>

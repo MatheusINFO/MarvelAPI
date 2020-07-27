@@ -11,11 +11,19 @@ import CardHero from '../../components/ListHero/CardHero';
 import {useHero} from '../../hooks/useHero';
 
 const Home = () => {
-    const [{heros, loading}, loadHero] = useHero();
+    const [{heros, loading, page}, loadHero, handleNextClick, handlePrevClick] = useHero();
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const searchMovies = (search) => {
+        const endpoint = search ? `https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${search}&` : `https://gateway.marvel.com:443/v1/public/characters?limit=8&`;
+
+        setSearchTerm(search);
+        loadHero(endpoint);
+    }
 
     return(
         <Container>
-            <SearchBar/>
+            <SearchBar callback={searchMovies}/>
 
             {loading ? <Spinner/> : (
                 <ListHero>
@@ -30,7 +38,7 @@ const Home = () => {
                 </ListHero>
             )}
             
-            <Pagination/>
+            {!searchTerm && <Pagination page={page} next={handleNextClick} prev={handlePrevClick}/>}
         </Container>
     )
 };

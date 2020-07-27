@@ -12,7 +12,7 @@ const Information = () => {
             <img src={LogoMarvel} alt="Logo Marvel"/>
 
             <p>
-                Olá galera, essa aplicação foi feita usando a API da Marvel para estudo da stack, o código 
+                Olá galera, essa aplicação foi feita usando a API da Marvel para estudo do react, o código 
                 está disponível no meu GitHub @MatheusINFO, espero que gostem!
             </p>
 

@@ -3,16 +3,16 @@ import {TiArrowRightOutline, TiArrowLeftOutline} from 'react-icons/ti';
 
 import {Container} from './styles';
 
-const Pagination = () => {
+const Pagination = (props) => {
     return(
         <Container>
-            <button>
+            <button onClick={props.prev}>
                 <TiArrowLeftOutline size={30} color="#fff"/>
             </button>
 
-            <input type="text" value="1"/>
+            <input type="text" value={props.page}/>
 
-            <button>
+            <button onClick={props.next}>
                 <TiArrowRightOutline size={30} color="#fff"/>
             </button>
         </Container>
