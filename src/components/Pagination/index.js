@@ -10,7 +10,7 @@ const Pagination = (props) => {
                 <TiArrowLeftOutline size={30} color="#fff"/>
             </button>
 
-            <input type="text" value={props.page}/>
+            <input type="text" readOnly value={props.page}/>
 
             <button onClick={props.next}>
                 <TiArrowRightOutline size={30} color="#fff"/>
