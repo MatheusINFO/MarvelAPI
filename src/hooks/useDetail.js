@@ -23,7 +23,7 @@ export const useDetail = () => {
         const sliptUrl = url.split('/');
         const id = sliptUrl[4];
 
-        {console.log(id)}
+        console.log(id);
         
         detailHero(id);
     }, []);
