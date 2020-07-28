@@ -22,8 +22,6 @@ export const useDetail = () => {
         const url = window.location.href;
         const sliptUrl = url.split('/');
         const id = sliptUrl[4];
-
-        console.log(id);
         
         detailHero(id);
     }, []);
