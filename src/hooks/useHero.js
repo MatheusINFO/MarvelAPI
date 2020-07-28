@@ -10,13 +10,7 @@ export const useHero = () => {
     const [page, setPage] = useState(1);
 
     const loadHero = async url => {
-        var newUrl = "";
-
-        if(url === "https://gateway.marvel.com:443/v1/public/characters?limit=8&"){
-            newUrl = url + `offset=${offSet}&ts=${timeStamp}&apikey=${apiKey}&hash=${md5}`;
-        }else{
-            newUrl = url + `ts=${timeStamp}&apikey=${apiKey}&hash=${md5}`;
-        }
+        const newUrl = url + `ts=${timeStamp}&apikey=${apiKey}&hash=${md5}`;
         
         try{
             const {data: listHeros} = await axios.get(newUrl);
@@ -29,8 +23,21 @@ export const useHero = () => {
     }
 
     useEffect(() => {
-        loadHero(base_url);
-    }, [offSet, loadHero]);
+        async function load(){
+            const newUrl = base_url + `offset=${offSet}&ts=${timeStamp}&apikey=${apiKey}&hash=${md5}`;
+
+            try{
+                const {data: listHeros} = await axios.get(newUrl);
+    
+                setHeros(listHeros.data.results);
+                setLoad(false);
+            }catch(error){
+                console.log(error);
+            }
+        }
+
+        load();
+    }, [offSet]);
 
     // Switch pagination
     const handlePrevClick = () => {
