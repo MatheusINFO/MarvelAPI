@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {TiArrowRightOutline, TiArrowLeftOutline} from 'react-icons/ti';
 
 import {Container} from './styles';
@@ -18,5 +19,12 @@ const Pagination = (props) => {
         </Container>
     )
 }
+
+Pagination.propTypes = {
+    page: PropTypes.number,
+    prev: PropTypes.func,
+    next: PropTypes.func
+}
+
 
 export default Pagination;

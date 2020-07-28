@@ -1,4 +1,7 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+
+import {Container, Title, SeriesText, WrapperHero, WrapperComic, ComicDetails} from './styles';
 
 import Spinner from '../../components/Spinner';
 
@@ -8,37 +11,38 @@ const HeroDetail = () => {
     const [{hero, comics, loading}] = useDetail();
 
     return(
-        <>
-            {!loading && (
+        <Container>
+            {loading ? <Spinner/> : (
                 <>
-                    <img src={hero.thumbnail.path + '.' + hero.thumbnail.extension} alt="Avatar"/>
-                    <h1>Nome: {hero.name}</h1>
-                    <p>Descrição: {hero.description}</p>
-
-                    <strong>Séries:</strong>
-                    {hero.series.items.map((item, id) => (
-                        <p key={id}>{item.name}</p>
-                    ))}
-
-                    <strong>Eventos:</strong>
-                    {hero.events.items.map((item, id) => (
-                        <p key={id}>{item.name}</p>
-                    ))}
-
-                    <strong>Quadrinhos</strong>
-                    {comics.map((comic, id) => (
-                        <div key={id}>
-                            {comic.thumbnail.path + '.' + comic.thumbnail.extension !== 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg' &&
-                                <>
-                                    <p>{comic.title}</p>
-                                    <img src={comic.thumbnail.path + '.' + comic.thumbnail.extension} alt="Comic"/>
-                                </>
-                            }
+                    <Link to="/home" title="voltar">voltar</Link>
+                    <WrapperHero>
+                        <img src={hero.thumbnail.path + '.' + hero.thumbnail.extension} alt="Avatar"/>
+                        
+                        <div>
+                            <h1>{hero.name}</h1>
+                            <p>{hero.description}</p>
                         </div>
+                    </WrapperHero>
+
+                    <Title>Séries</Title>
+                    {hero.series.items.map((item, id) => (
+                        <SeriesText key={id}>{item.name}</SeriesText>
                     ))}
+
+                    <Title>Quadrinhos</Title>
+                    <WrapperComic>
+                        {comics.map((comic, id) => (
+                            <ComicDetails key={id}>
+                                <div>
+                                    <img src={comic.thumbnail.path + '.' + comic.thumbnail.extension} alt="Comic"/>
+                                    <strong>{comic.title}</strong>
+                                </div>
+                            </ComicDetails>
+                        ))}
+                    </WrapperComic>
                 </>
             )}
-        </>
+        </Container>
     )
 }
 

@@ -1,4 +1,5 @@
 import React, {useState, useRef} from 'react';
+import PropTypes from 'prop-types';
 import {FaSearch} from 'react-icons/fa';
 
 import {Form} from './styles';
@@ -34,5 +35,10 @@ const SearchBar = (props) => {
         </Form>
     )
 }
+
+SearchBar.propTypes = {
+    callback: PropTypes.func,
+}
+
 
 export default SearchBar;

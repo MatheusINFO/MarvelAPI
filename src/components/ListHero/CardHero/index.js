@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import NoImage from '../../../assets/no_image.jpg';
 
@@ -20,6 +21,12 @@ const CardHero = (props) => {
             </a>
         </Container>
     )
+}
+
+CardHero.propTypes = {
+    id: PropTypes.number,
+    name: PropTypes.string,
+    thumbnail: PropTypes.object
 }
 
 export default CardHero;
