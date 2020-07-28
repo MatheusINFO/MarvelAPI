@@ -30,7 +30,7 @@ export const useHero = () => {
 
     useEffect(() => {
         loadHero(base_url);
-    }, [offSet]);
+    }, [offSet, loadHero]);
 
     // Switch pagination
     const handlePrevClick = () => {
