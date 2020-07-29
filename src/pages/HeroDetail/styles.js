@@ -64,6 +64,17 @@ export const WrapperHero = styled.div`
             color: #fff;
         }
    }
+
+   @media(max-width: 600px){
+       flex-direction: column;
+        width: 350px;
+
+        img{
+            height: 250px;
+            width: 250px;
+            margin: 0 auto;
+        }
+    }
 `;
 
 export const WrapperComic = styled.div`
@@ -77,6 +88,14 @@ export const WrapperComic = styled.div`
 
     @media(max-width: 1300px){
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media(max-width: 1000px){
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media(max-width: 800px){
+        grid-template-columns: repeat(1, 1fr);
     }
 
 `;

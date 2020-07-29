@@ -12,6 +12,11 @@ export const Container = styled.li`
     background-position: cover cover;
     background-size: 450px;
     background-repeat: no-repeat;
+
+    @media(max-width: 500px){
+        height: 320px;
+        width: 300px;
+    }
 `;
 
 export const Content = styled.div`
@@ -23,6 +28,15 @@ export const Content = styled.div`
 
     strong{
         color: #000;
+    }
+
+    @media(max-width: 500px){
+        height: 290px;
+        width: 260px;
+
+        strong{
+            display: none;
+        }
     }
 `;
 
