@@ -17,5 +17,6 @@ export const Container = styled.ul`
 
     @media(max-width: 840px){
         grid-template-columns: repeat(1, 1fr);
+        margin-right: 25px;
     }
 `;

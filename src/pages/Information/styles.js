@@ -14,6 +14,10 @@ export const Container = styled.div`
         height: 220px;
         margin: 0 auto;
         animation: animatedLogo 3s ease-in;
+
+        @media(max-width: 800px){
+            width: 380px;
+        }
     }
 
     p{
@@ -22,6 +26,10 @@ export const Container = styled.div`
         width: 350px;
         text-align: justify;
         color: #fff;
+
+        @media(max-width: 800px){
+            width: 320px;
+        }
     }
 
     button{
