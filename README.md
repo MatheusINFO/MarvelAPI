@@ -34,7 +34,7 @@ Esse projeto foi desenvolvido apenas para estudo, nele eu usei as seguintes tecn
 
 ```bash
 # Clonar o repositório
-$ git clone https://github.com/MatheusINFO/MarvelAPI.git
+$ git clone https://github.com/MatheusINFO/marvel-api.git
 
 #FRONTEND
 # Ir dentro do repositório clonado
