@@ -1,7 +1,7 @@
 <h1 align="center">
       <img src="https://logodownload.org/wp-content/uploads/2017/05/marvel-logo-6.png"/>
       <br>
-      MarvelAPI
+      MarvelWeb
 </h1>
 
 <h4 align="center">
